@@ -13,7 +13,7 @@
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with this programe.  If not, see <http://www.gnu.org/licenses/>.
-from views import save_ajax, get_field
+from inplaceeditform.views import save_ajax, get_field
 
 try:
     from django.conf.urls import patterns, url
