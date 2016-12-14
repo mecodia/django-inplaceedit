@@ -81,7 +81,7 @@ def import_module(name, package=None):
 def get_adaptor_class(adaptor=None, obj=None, field_name=None):
     if not adaptor:
         try:
-            field = obj._meta.get_field_by_name(field_name)[0]
+            field = getattr(obj, field_name)
         except FieldDoesNotExist:
             if has_transmeta:
                 field = obj._meta.get_field_by_name(transmeta.get_real_fieldname(field_name))[0]
