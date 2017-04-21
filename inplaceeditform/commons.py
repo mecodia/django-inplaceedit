@@ -43,7 +43,8 @@ def get_dict_from_obj(obj):
         if key.endswith('_id'):
             key2 = key.replace('_id', '')
             try:
-                field, model, direct, m2m = obj._meta.get_field_by_name(key2)
+                field = obj._meta.get_field(key2)
+                model = field.model
                 if isinstance(field, ForeignKey):
                     obj_dict_result[key2] = obj_dict_result[key]
                     del obj_dict_result[key]
