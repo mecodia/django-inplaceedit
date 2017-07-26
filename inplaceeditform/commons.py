@@ -82,10 +82,10 @@ def import_module(name, package=None):
 def get_adaptor_class(adaptor=None, obj=None, field_name=None):
     if not adaptor:
         try:
-            field = getattr(obj, field_name)
+            field = obj._meta.get_field(field_name)
         except FieldDoesNotExist:
             if has_transmeta:
-                field = obj._meta.get_field_by_name(transmeta.get_real_fieldname(field_name))[0]
+                field = obj._meta.get_field(transmeta.get_real_fieldname(field_name))
         if isinstance(field, models.URLField):
             adaptor = 'url'
         elif isinstance(field, models.EmailField):
