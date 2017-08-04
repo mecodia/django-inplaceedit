@@ -398,7 +398,7 @@ class BaseDateField(BaseAdaptorField):
 
     def render_media_field(self, template_name="inplaceeditform/adaptor_date/render_media_field.html", extra_context=None):
         extra_context = extra_context or {}
-        context = {'javascript_catalog_url': reverse('django.views.i18n.javascript_catalog')}
+        context = {'javascript_catalog_url': reverse('javascript-catalog')}
         context.update(extra_context)
         return super(BaseDateField, self).render_media_field(template_name,
                                                              extra_context=context)
